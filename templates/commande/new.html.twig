@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une commande{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">Création d'une commande</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">    {{ include('commande/_form.html.twig') }}
+        </button>
+        <button type="button" class="btn btn-secondary"> <a href="{{ path('commande_index') }}"> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            retour à la liste </a>
+        </button>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            {{form_row(form.montant)}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(form.numeroOrdrePaiement)}}
+        </div>
+        <div class="col-md-4 mt-8">
+            {{form_row(form.commande)}}
+        </div>
+        <div class="col-md-4">
+            {{form_row(form.budget)}}
+        </div>
+        <div class="col-md-4 mt-8">
+            {{form_row(form.compte)}}
+        </div>
+    </div>
+    <button class="btn btn-outline-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{ button_label|default('Enregistrer ')}}</button>
+
+
+    {{ form_end(form) }}
+
+</div>

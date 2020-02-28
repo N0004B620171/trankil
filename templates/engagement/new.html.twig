@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un engagement{% endblock %}
+
+{% block body %}
+<h1 class="mb-5">Création d'un engagement</h1>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-outline-primary">{{ include('engagement/_form.html.twig') }}
+    </button>
+    <button type="button" class="btn btn-secondary"><a  href="{{ path('engagement_index') }}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        retour à la liste</a></button>
+  </div>
+
+<!--
+<div class="container">
+    <form action="" method="POST">
+        <div class="row">
+            <div class="col col-sm-6">
+                  <fieldset>
+
+
+                    <div class="form-group">
+                        <label class="form-control" for="montant">Montant</label>
+                        <input class="form-control" type="number" name="montant" placeholder="montant" id="montant">
+                    </div>
+
+                      
+                </fieldset>
+            </div>
+            <div class="col col-sm-6">
+                  <fieldset>
+
+                    <div class="form-group">
+                        <label class="form-control" for="numeroOrdrePaiement"> Numéro ordre de paiement:</label>
+                        <input class="form-control" type="number" name="numeroOrdrePaiement"
+                            placeholder="numeroOrdrePaiement" id="numeroOrdrePaiement">
+                    </div>
+                      
+                </fieldset>
+            </div>
+
+            <div class="col col-sm-4">
+                  <fieldset>
+
+                    <div class="form-group">
+                        <label class="form-control" for="cammandeNumero">Numéro de commande</label>
+                        <input class="form-control" type="number" name="commandeNumero"
+                            placeholder="Saisir le numéro de la commande" id="cammandeNumero">
+                    </div>
+                      
+                </fieldset>
+            </div>
+
+            <div class="col col-sm-4">
+                  <fieldset>
+
+                    <div class="form-group">
+                        <label class="form-control" for="budgetNumero">Numéro du budget </label>
+                        <input class="form-control" type="number" name="budgetNumero"
+                            placeholder="Saisir le numéro du budget" id="budgetNumero">
+                    </div>
+                      
+                </fieldset>
+            </div>
+            <div class="col col-sm-4">
+                  <fieldset>
+
+                    <div class="form-group">
+                        <label class="form-control" for="compteNumero">Numéro de compte</label>
+                        <input class="form-control" type="number" name="compteNumero"
+                            placeholder="Saisir le numéro du compte" id="compteNumero">
+                    </div>
+                      
+                </fieldset>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+        </div>
+    </form>
+</div>
+-->
+
+
+
+{% endblock %}

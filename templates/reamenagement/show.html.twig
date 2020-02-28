@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reamenagement{% endblock %}
+
+{% block body %}
+    <h1>Reamenagement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reamenagement.id }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ reamenagement.montant }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ reamenagement.date ? reamenagement.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reamenagement_index') }}">back to list</a>
+
+    <a href="{{ path('reamenagement_edit', {'id': reamenagement.id}) }}">edit</a>
+
+    {{ include('reamenagement/_delete_form.html.twig') }}
+{% endblock %}

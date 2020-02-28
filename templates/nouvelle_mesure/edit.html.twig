@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit NouvelleMesure{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">Edit NouvelleMesure</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">    {{ include('nouvelle_mesure/_form.html.twig', {'button_label': 'editer'}) }}
+        </button>
+        <button type="button" class="btn btn-secondary">    {{ include('nouvelle_mesure/_delete_form.html.twig') }}
+        </button>
+        <button type="button" class="btn btn-secondary">    <a href="{{ path('nouvelle_mesure_index') }}">retour à la liste</a>
+        </button>
+      </div>
+
+
+
+{% endblock %}

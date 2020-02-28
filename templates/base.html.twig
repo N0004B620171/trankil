@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{asset('https://bootswatch.com/4/yeti/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css')}}"/> 
+    <script src="{{asset('https://kit.fontawesome.com/ae659efd95.js')}}" crossorigin="anonymous"></script>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{{path('home')}}">suiB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('commande_index')}}">Commande <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('budget_index')}}">Budget</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('compte_index')}}">Compte</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{path('engagement_index')}}">Engagement <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('nouvelle_mesure_index')}}">Nouvelle Mesure</a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    <script src="{{asset('https://code.jquery.com/jquery-3.3.1.js')}}"></script>
+    <script src="{{asset('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js')}}"></script>
+    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js')}}"></script>
+    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js')}}"></script>
+    <script src="{{asset('https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+    {% block javascripts %}{% endblock %}
+</body>
+
+</html>

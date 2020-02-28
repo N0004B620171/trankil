@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte{% endblock %}
+
+{% block body %}
+<h1>Compte</h1>
+
+<table class="table table-striped table-bordered ">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ compte.id }}</td>
+        </tr>
+        <tr>
+            <th>Numero</th>
+            <td>{{ compte.numero }}</td>
+        </tr>
+        <tr>
+            <th>Versement</th>
+            <td>{{ compte.versement }}</td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align: center;" class="btn-group" role="group" aria-label="Basic example">
+
+    <button type="button" class="btn btn-secondary"><a href="{{ path('compte_edit', {'id': compte.id}) }}"><i
+                class="fa fa-pencil" aria-hidden="true"></i> editer</a></button>
+    {{ include('compte/_delete_form.html.twig') }}
+    <button type="button" class="btn btn-secondary"><a href="{{ path('compte_index') }}"><i
+                class="fa fa-arrow-circle-left" aria-hidden="true"></i> retour à la
+            liste</a></button>
+</div>
+
+
+{% endblock %}

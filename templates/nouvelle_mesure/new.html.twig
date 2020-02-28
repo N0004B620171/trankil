@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New NouvelleMesure{% endblock %}
+
+{% block body %}
+    <h1>Create new NouvelleMesure</h1>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">     {{ include('reamenagement/_form.html.twig') }}
+        </button>
+        <button type="button" class="btn btn-secondary"> <a href="{{ path('nouvelle_mesure_index') }}"> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            retour à la liste </a>
+        </button>
+      </div>
+
+
+
+
+
+  <!-- 
+   <form action="" method="POST">
+    <input type="number" name="montant" placeholder="montant">
+    <input type="number" name="budgetNumero" placeholder="budget num">
+<button type="submit">Enregistrer</button>
+</form>
+-->
+{% endblock %}

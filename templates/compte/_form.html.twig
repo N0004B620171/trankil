@@ -1,0 +1,15 @@
+<div class="container">
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-7">
+            {{form_row(form.numero)}}
+        </div>
+        <div class="col-md-7">
+            {{form_row(form.versement)}}
+        </div>
+      
+    </div>
+    <button class="btn btn-outline-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+</div>

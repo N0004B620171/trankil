@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}la liste des comptes{% endblock %}
+
+{% block body %}
+    <h1>la liste des comptes</h1>
+
+    <table class="table table-striped table-bordered ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Versement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compte in comptes %}
+            <tr>
+                <td>{{ compte.id }}</td>
+                <td>{{ compte.numero }}</td>
+                <td>{{ compte.versement }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary"> <a href="{{ path('compte_show', {'id': compte.id}) }}">Voir <i class="fa fa-eye"
+                            aria-hidden="true"></i></a></button>
+                        <button type="button" class="btn btn-secondary"><a href="{{ path('compte_edit', {'id': compte.id}) }}">editer <i class="fa fa-pencil"
+                            aria-hidden="true"></i></a></button>
+                      </div>
+                   
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-secondary">    <a href="{{ path('compte_new') }}">Créer un nouveau</a>
+    </button>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un budget{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">Création d'un budget</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">     {{ include('budget/_form.html.twig') }}
+        </button>
+        <button type="button" class="btn btn-secondary"> <a href="{{ path('budget_index') }}"> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            retour à la liste </a>
+        </button>
+      </div>
+{% endblock %}
