@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerGQUGwgR;
+namespace ContainerXqBzNRW;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -45,6 +45,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\HomeController' => 'getHomeControllerService',
             'App\\Controller\\NouvelleMesureController' => 'getNouvelleMesureControllerService',
             'App\\Controller\\ReamenagementController' => 'getReamenagementControllerService',
+            'App\\Controller\\RegistrationController' => 'getRegistrationControllerService',
             'App\\Controller\\SecurityController' => 'getSecurityControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
@@ -470,6 +471,23 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the public 'App\Controller\RegistrationController' shared autowired service.
+     *
+     * @return \App\Controller\RegistrationController
+     */
+    protected function getRegistrationControllerService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\framework-bundle\\Controller\\AbstractController.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Controller\\RegistrationController.php';
+
+        $this->services['App\\Controller\\RegistrationController'] = $instance = new \App\Controller\RegistrationController();
+
+        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\RegistrationController', $this));
+
+        return $instance;
+    }
+
+    /**
      * Gets the public 'App\Controller\SecurityController' shared autowired service.
      *
      * @return \App\Controller\SecurityController
@@ -517,7 +535,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_AppService()
     {
-        $a = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('L3+EfTvvj4', 0, ($this->targetDir.''.'/pools'), new \Symfony\Component\Cache\Marshaller\DefaultMarshaller(NULL));
+        $a = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('+YF-nBpaYc', 0, ($this->targetDir.''.'/pools'), new \Symfony\Component\Cache\Marshaller\DefaultMarshaller(NULL));
         $a->setLogger(($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
 
         return $this->services['cache.app'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter($a);
@@ -556,7 +574,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('fK6ARK-Pda', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
+        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('93A+3AOr2R', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
     }
 
     /**
@@ -888,6 +906,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Repository\\CommandeRepository' => ['privates', 'App\\Repository\\CommandeRepository', 'getCommandeRepositoryService', false],
             'App\\Repository\\CompteRepository' => ['privates', 'App\\Repository\\CompteRepository', 'getCompteRepositoryService', false],
             'App\\Repository\\EngagementRepository' => ['privates', 'App\\Repository\\EngagementRepository', 'getEngagementRepositoryService', false],
+            'App\\Repository\\MaxuRepository' => ['privates', 'App\\Repository\\MaxuRepository', 'getMaxuRepositoryService', false],
             'App\\Repository\\NouvelleMesureRepository' => ['privates', 'App\\Repository\\NouvelleMesureRepository', 'getNouvelleMesureRepositoryService', false],
             'App\\Repository\\ReamenagementRepository' => ['privates', 'App\\Repository\\ReamenagementRepository', 'getReamenagementRepositoryService', false],
             'App\\Repository\\UserRepository' => ['privates', 'App\\Repository\\UserRepository', 'getUserRepositoryService', false],
@@ -896,6 +915,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Repository\\CommandeRepository' => '?',
             'App\\Repository\\CompteRepository' => '?',
             'App\\Repository\\EngagementRepository' => '?',
+            'App\\Repository\\MaxuRepository' => '?',
             'App\\Repository\\NouvelleMesureRepository' => '?',
             'App\\Repository\\ReamenagementRepository' => '?',
             'App\\Repository\\UserRepository' => '?',
@@ -1671,41 +1691,13 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.WhhgJuT' shared service.
+     * Gets the private '.service_locator.URCqcdu' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function get_ServiceLocator_WhhgJuTService()
+    protected function get_ServiceLocator_URCqcduService()
     {
-        return $this->privates['.service_locator.WhhgJuT'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'engagement' => ['privates', '.errored..service_locator.WhhgJuT.App\\Entity\\Engagement', NULL, 'Cannot autowire service ".service_locator.WhhgJuT": it references class "App\\Entity\\Engagement" but no such service exists.'],
-        ], [
-            'engagement' => 'App\\Entity\\Engagement',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.WuBkyXQ' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_WuBkyXQService()
-    {
-        return $this->privates['.service_locator.WuBkyXQ'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'compte' => ['privates', '.errored..service_locator.WuBkyXQ.App\\Entity\\Compte', NULL, 'Cannot autowire service ".service_locator.WuBkyXQ": it references class "App\\Entity\\Compte" but no such service exists.'],
-        ], [
-            'compte' => 'App\\Entity\\Compte',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.XT24L4q' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_XT24L4qService()
-    {
-        return $this->privates['.service_locator.XT24L4q'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+        return $this->privates['.service_locator.URCqcdu'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
             'App\\Controller\\BudgetController::delete' => ['privates', '.service_locator.51HqvS_', 'get_ServiceLocator_51HqvSService', false],
             'App\\Controller\\BudgetController::edit' => ['privates', '.service_locator.51HqvS_', 'get_ServiceLocator_51HqvSService', false],
             'App\\Controller\\BudgetController::index' => ['privates', '.service_locator.KgGotjg', 'get_ServiceLocator_KgGotjgService', false],
@@ -1732,6 +1724,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\ReamenagementController::edit' => ['privates', '.service_locator.LTzmWw6', 'get_ServiceLocator_LTzmWw6Service', false],
             'App\\Controller\\ReamenagementController::index' => ['privates', '.service_locator.hkrbXp4', 'get_ServiceLocator_HkrbXp4Service', false],
             'App\\Controller\\ReamenagementController::show' => ['privates', '.service_locator.LTzmWw6', 'get_ServiceLocator_LTzmWw6Service', false],
+            'App\\Controller\\RegistrationController::register' => ['privates', '.service_locator.flKhx93', 'get_ServiceLocator_FlKhx93Service', false],
             'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
             'App\\Controller\\BudgetController:delete' => ['privates', '.service_locator.51HqvS_', 'get_ServiceLocator_51HqvSService', false],
             'App\\Controller\\BudgetController:edit' => ['privates', '.service_locator.51HqvS_', 'get_ServiceLocator_51HqvSService', false],
@@ -1759,6 +1752,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\ReamenagementController:edit' => ['privates', '.service_locator.LTzmWw6', 'get_ServiceLocator_LTzmWw6Service', false],
             'App\\Controller\\ReamenagementController:index' => ['privates', '.service_locator.hkrbXp4', 'get_ServiceLocator_HkrbXp4Service', false],
             'App\\Controller\\ReamenagementController:show' => ['privates', '.service_locator.LTzmWw6', 'get_ServiceLocator_LTzmWw6Service', false],
+            'App\\Controller\\RegistrationController:register' => ['privates', '.service_locator.flKhx93', 'get_ServiceLocator_FlKhx93Service', false],
             'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
         ], [
             'App\\Controller\\BudgetController::delete' => '?',
@@ -1787,6 +1781,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\ReamenagementController::edit' => '?',
             'App\\Controller\\ReamenagementController::index' => '?',
             'App\\Controller\\ReamenagementController::show' => '?',
+            'App\\Controller\\RegistrationController::register' => '?',
             'App\\Controller\\SecurityController::login' => '?',
             'App\\Controller\\BudgetController:delete' => '?',
             'App\\Controller\\BudgetController:edit' => '?',
@@ -1814,7 +1809,36 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\ReamenagementController:edit' => '?',
             'App\\Controller\\ReamenagementController:index' => '?',
             'App\\Controller\\ReamenagementController:show' => '?',
+            'App\\Controller\\RegistrationController:register' => '?',
             'App\\Controller\\SecurityController:login' => '?',
+        ]);
+    }
+
+    /**
+     * Gets the private '.service_locator.WhhgJuT' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_WhhgJuTService()
+    {
+        return $this->privates['.service_locator.WhhgJuT'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'engagement' => ['privates', '.errored..service_locator.WhhgJuT.App\\Entity\\Engagement', NULL, 'Cannot autowire service ".service_locator.WhhgJuT": it references class "App\\Entity\\Engagement" but no such service exists.'],
+        ], [
+            'engagement' => 'App\\Entity\\Engagement',
+        ]);
+    }
+
+    /**
+     * Gets the private '.service_locator.WuBkyXQ' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_WuBkyXQService()
+    {
+        return $this->privates['.service_locator.WuBkyXQ'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'compte' => ['privates', '.errored..service_locator.WuBkyXQ.App\\Entity\\Compte', NULL, 'Cannot autowire service ".service_locator.WuBkyXQ": it references class "App\\Entity\\Compte" but no such service exists.'],
+        ], [
+            'compte' => 'App\\Entity\\Compte',
         ]);
     }
 
@@ -1829,6 +1853,24 @@ class App_KernelDevDebugContainer extends Container
             'commande' => ['privates', '.errored..service_locator.YRAjVPF.App\\Entity\\Commande', NULL, 'Cannot autowire service ".service_locator.YRAjVPF": it references class "App\\Entity\\Commande" but no such service exists.'],
         ], [
             'commande' => 'App\\Entity\\Commande',
+        ]);
+    }
+
+    /**
+     * Gets the private '.service_locator.flKhx93' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_FlKhx93Service()
+    {
+        return $this->privates['.service_locator.flKhx93'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'authenticator' => ['privates', 'App\\Security\\UserAuthenticator', 'getUserAuthenticatorService', false],
+            'guardHandler' => ['privates', 'security.authentication.guard_handler', 'getSecurity_Authentication_GuardHandlerService', false],
+            'passwordEncoder' => ['services', 'security.password_encoder', 'getSecurity_PasswordEncoderService', false],
+        ], [
+            'authenticator' => 'App\\Security\\UserAuthenticator',
+            'guardHandler' => '?',
+            'passwordEncoder' => '?',
         ]);
     }
 
@@ -2021,6 +2063,20 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private 'App\Form\RegistrationFormType' shared autowired service.
+     *
+     * @return \App\Form\RegistrationFormType
+     */
+    protected function getRegistrationFormTypeService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\FormTypeInterface.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\AbstractType.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Form\\RegistrationFormType.php';
+
+        return $this->privates['App\\Form\\RegistrationFormType'] = new \App\Form\RegistrationFormType();
+    }
+
+    /**
      * Gets the private 'App\Repository\BudgetRepository' shared autowired service.
      *
      * @return \App\Repository\BudgetRepository
@@ -2086,6 +2142,23 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\src\\Repository\\EngagementRepository.php';
 
         return $this->privates['App\\Repository\\EngagementRepository'] = new \App\Repository\EngagementRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
+    }
+
+    /**
+     * Gets the private 'App\Repository\MaxuRepository' shared autowired service.
+     *
+     * @return \App\Repository\MaxuRepository
+     */
+    protected function getMaxuRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\persistence\\lib\\Doctrine\\Persistence\\ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\collections\\lib\\Doctrine\\Common\\Collections\\Selectable.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\doctrine-bundle\\Repository\\ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\doctrine-bundle\\Repository\\ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Repository\\MaxuRepository.php';
+
+        return $this->privates['App\\Repository\\MaxuRepository'] = new \App\Repository\MaxuRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
     }
 
     /**
@@ -2236,7 +2309,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_AnnotationsService()
     {
-        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('-EM+-lZQVs', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
+        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('g-URVt1BrI', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
     }
 
     /**
@@ -2276,7 +2349,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_PropertyInfoService()
     {
-        return $this->privates['cache.property_info'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('YECowT9-fI', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
+        return $this->privates['cache.property_info'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('34cI1DVb2E', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
     }
 
     /**
@@ -2286,7 +2359,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SecurityExpressionLanguageService()
     {
-        return $this->privates['cache.security_expression_language'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('mm2NqKOYlv', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
+        return $this->privates['cache.security_expression_language'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('psZULtz+R8', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
     }
 
     /**
@@ -2296,7 +2369,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SerializerService()
     {
-        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('7fZ2aWCrdG', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
+        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('aJdqoObvEC', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
     }
 
     /**
@@ -2306,7 +2379,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_ValidatorService()
     {
-        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('uwABuIuwYF', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
+        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ENbYmkvqdq', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger()))));
     }
 
     /**
@@ -2575,7 +2648,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\console\\Command\\Command.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\Command\\DebugCommand.php';
 
-        $this->privates['console.command.form_debug'] = $instance = new \Symfony\Component\Form\Command\DebugCommand(($this->privates['form.registry'] ?? $this->getForm_RegistryService()), [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type', 1 => 'App\\Form', 2 => 'Symfony\\Bridge\\Doctrine\\Form\\Type'], [0 => 'App\\Form\\BudgetType', 1 => 'App\\Form\\CommandeType', 2 => 'App\\Form\\CompteType', 3 => 'App\\Form\\EngagementType', 4 => 'App\\Form\\NouvelleMesureType', 5 => 'App\\Form\\ReamenagementType', 6 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 7 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 8 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 9 => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType'], [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TransformationFailureExtension', 1 => 'Symfony\\Component\\Form\\Extension\\HttpFoundation\\Type\\FormTypeHttpFoundationExtension', 2 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\FormTypeValidatorExtension', 3 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\RepeatedTypeValidatorExtension', 4 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\SubmitTypeValidatorExtension', 5 => 'Symfony\\Component\\Form\\Extension\\Csrf\\Type\\FormTypeCsrfExtension', 6 => 'Symfony\\Component\\Form\\Extension\\DataCollector\\Type\\DataCollectorTypeExtension'], [0 => 'Symfony\\Component\\Form\\Extension\\Validator\\ValidatorTypeGuesser', 1 => 'Symfony\\Bridge\\Doctrine\\Form\\DoctrineOrmTypeGuesser'], ($this->privates['debug.file_link_formatter'] ?? $this->getDebug_FileLinkFormatterService()));
+        $this->privates['console.command.form_debug'] = $instance = new \Symfony\Component\Form\Command\DebugCommand(($this->privates['form.registry'] ?? $this->getForm_RegistryService()), [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type', 1 => 'App\\Form', 2 => 'Symfony\\Bridge\\Doctrine\\Form\\Type'], [0 => 'App\\Form\\BudgetType', 1 => 'App\\Form\\CommandeType', 2 => 'App\\Form\\CompteType', 3 => 'App\\Form\\EngagementType', 4 => 'App\\Form\\NouvelleMesureType', 5 => 'App\\Form\\ReamenagementType', 6 => 'App\\Form\\RegistrationFormType', 7 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 8 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 9 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 10 => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType'], [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TransformationFailureExtension', 1 => 'Symfony\\Component\\Form\\Extension\\HttpFoundation\\Type\\FormTypeHttpFoundationExtension', 2 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\FormTypeValidatorExtension', 3 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\RepeatedTypeValidatorExtension', 4 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\SubmitTypeValidatorExtension', 5 => 'Symfony\\Component\\Form\\Extension\\Csrf\\Type\\FormTypeCsrfExtension', 6 => 'Symfony\\Component\\Form\\Extension\\DataCollector\\Type\\DataCollectorTypeExtension'], [0 => 'Symfony\\Component\\Form\\Extension\\Validator\\ValidatorTypeGuesser', 1 => 'Symfony\\Bridge\\Doctrine\\Form\\DoctrineOrmTypeGuesser'], ($this->privates['debug.file_link_formatter'] ?? $this->getDebug_FileLinkFormatterService()));
 
         $instance->setName('debug:form');
 
@@ -2822,7 +2895,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.XT24L4q'] ?? $this->get_ServiceLocator_XT24L4qService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.URCqcdu'] ?? $this->get_ServiceLocator_URCqcduService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2864,7 +2937,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.XT24L4q'] ?? $this->get_ServiceLocator_XT24L4qService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.URCqcdu'] ?? $this->get_ServiceLocator_URCqcduService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -3640,6 +3713,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Form\\EngagementType' => ['privates', 'App\\Form\\EngagementType', 'getEngagementTypeService', false],
             'App\\Form\\NouvelleMesureType' => ['privates', 'App\\Form\\NouvelleMesureType', 'getNouvelleMesureTypeService', false],
             'App\\Form\\ReamenagementType' => ['privates', 'App\\Form\\ReamenagementType', 'getReamenagementTypeService', false],
+            'App\\Form\\RegistrationFormType' => ['privates', 'App\\Form\\RegistrationFormType', 'getRegistrationFormTypeService', false],
             'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => ['privates', 'form.type.entity', 'getForm_Type_EntityService', false],
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => ['privates', 'form.type.choice', 'getForm_Type_ChoiceService', false],
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => ['services', 'form.type.file', 'getForm_Type_FileService', false],
@@ -3651,6 +3725,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Form\\EngagementType' => '?',
             'App\\Form\\NouvelleMesureType' => '?',
             'App\\Form\\ReamenagementType' => '?',
+            'App\\Form\\RegistrationFormType' => '?',
             'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => '?',
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => '?',
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => '?',
@@ -4484,6 +4559,24 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private 'security.authentication.guard_handler' shared service.
+     *
+     * @return \Symfony\Component\Security\Guard\GuardAuthenticatorHandler
+     */
+    protected function getSecurity_Authentication_GuardHandlerService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-guard\\GuardAuthenticatorHandler.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-http\\Session\\SessionAuthenticationStrategyInterface.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-http\\Session\\SessionAuthenticationStrategy.php';
+
+        $this->privates['security.authentication.guard_handler'] = $instance = new \Symfony\Component\Security\Guard\GuardAuthenticatorHandler(($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), ($this->services['event_dispatcher'] ?? $this->getEventDispatcherService()), []);
+
+        $instance->setSessionAuthenticationStrategy(new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'));
+
+        return $instance;
+    }
+
+    /**
      * Gets the private 'security.authentication.listener.anonymous.main' shared service.
      *
      * @return \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener
@@ -4505,14 +4598,8 @@ class App_KernelDevDebugContainer extends Container
     {
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-http\\Firewall\\AbstractListener.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-guard\\Firewall\\GuardAuthenticationListener.php';
-        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-guard\\GuardAuthenticatorHandler.php';
-        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-http\\Session\\SessionAuthenticationStrategyInterface.php';
-        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-http\\Session\\SessionAuthenticationStrategy.php';
 
-        $a = new \Symfony\Component\Security\Guard\GuardAuthenticatorHandler(($this->services['security.token_storage'] ?? $this->getSecurity_TokenStorageService()), ($this->services['event_dispatcher'] ?? $this->getEventDispatcherService()), []);
-        $a->setSessionAuthenticationStrategy(new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'));
-
-        return $this->privates['security.authentication.listener.guard.main'] = new \Symfony\Component\Security\Guard\Firewall\GuardAuthenticationListener($a, ($this->privates['security.authentication.manager'] ?? $this->getSecurity_Authentication_ManagerService()), 'main', new RewindableGenerator(function () {
+        return $this->privates['security.authentication.listener.guard.main'] = new \Symfony\Component\Security\Guard\Firewall\GuardAuthenticationListener(($this->privates['security.authentication.guard_handler'] ?? $this->getSecurity_Authentication_GuardHandlerService()), ($this->privates['security.authentication.manager'] ?? $this->getSecurity_Authentication_ManagerService()), 'main', new RewindableGenerator(function () {
             yield 0 => ($this->privates['App\\Security\\UserAuthenticator'] ?? $this->getUserAuthenticatorService());
         }, 1), ($this->privates['logger'] ?? ($this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
     }

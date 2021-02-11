@@ -383,6 +383,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\MaxuRepository" class="App\Repository\MaxuRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\NouvelleMesureRepository" class="App\Repository\NouvelleMesureRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -2107,7 +2111,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator..wRxIar"/>
+      <argument type="service" id=".service_locator.Gc7cPAY"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3563,6 +3567,8 @@
     <service id=".abstract.instanceof.App\Repository\CompteRepository" class="App\Repository\CompteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EngagementRepository" class="App\Repository\EngagementRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EngagementRepository" class="App\Repository\EngagementRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MaxuRepository" class="App\Repository\MaxuRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MaxuRepository" class="App\Repository\MaxuRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NouvelleMesureRepository" class="App\Repository\NouvelleMesureRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\NouvelleMesureRepository" class="App\Repository\NouvelleMesureRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReamenagementRepository" class="App\Repository\ReamenagementRepository" autowire="true" abstract="true"/>
@@ -4093,13 +4099,14 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator..wRxIar" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Gc7cPAY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\BudgetRepository" type="service" id="App\Repository\BudgetRepository"/>
         <argument key="App\Repository\CommandeRepository" type="service" id="App\Repository\CommandeRepository"/>
         <argument key="App\Repository\CompteRepository" type="service" id="App\Repository\CompteRepository"/>
         <argument key="App\Repository\EngagementRepository" type="service" id="App\Repository\EngagementRepository"/>
+        <argument key="App\Repository\MaxuRepository" type="service" id="App\Repository\MaxuRepository"/>
         <argument key="App\Repository\NouvelleMesureRepository" type="service" id="App\Repository\NouvelleMesureRepository"/>
         <argument key="App\Repository\ReamenagementRepository" type="service" id="App\Repository\ReamenagementRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
