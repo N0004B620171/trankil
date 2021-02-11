@@ -1,1 +1,1 @@
-'web: heroku-php-apache2 public/' 
+'web: $(config bin-dir)heroku-php-apache2 public/' 
