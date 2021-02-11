@@ -9,8 +9,8 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
     return;
 }
 
-require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/ContainerXqBzNRW/App_KernelDevDebugContainer.php';
+require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
+require __DIR__.'/ContainerRQPLuT2/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -111,7 +111,6 @@ $classes[] = 'Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionVa
 $classes[] = 'Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\DebugHandlersListener';
 $classes[] = 'Symfony\Component\HttpKernel\Debug\FileLinkFormatter';
-$classes[] = 'string';
 $classes[] = 'Symfony\Component\Security\Core\Authorization\TraceableAccessDecisionManager';
 $classes[] = 'Symfony\Component\Security\Core\Authorization\AccessDecisionManager';
 $classes[] = 'Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener';
@@ -144,6 +143,7 @@ $classes[] = 'Doctrine\Bundle\DoctrineBundle\Command\Proxy\EnsureProductionSetti
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Command\Proxy\ConvertMappingDoctrineCommand';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Command\ImportMappingDoctrineCommand';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Command\Proxy\InfoDoctrineCommand';
+$classes[] = 'Doctrine\ORM\Proxy\Autoloader';
 $classes[] = 'Doctrine\ORM\EntityManager';
 $classes[] = 'Doctrine\ORM\Configuration';
 $classes[] = 'Doctrine\Persistence\Mapping\Driver\MappingDriverChain';
@@ -153,6 +153,7 @@ $classes[] = 'Doctrine\ORM\Mapping\DefaultQuoteStrategy';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\ManagerConfigurator';
+$classes[] = 'Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor';
 $classes[] = 'Doctrine\ORM\Tools\AttachEntityListenersListener';
 $classes[] = 'Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer';
 $classes[] = 'Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator';
@@ -211,6 +212,7 @@ $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver';
 $classes[] = 'Symfony\Component\HttpKernel\Controller\TraceableArgumentResolver';
 $classes[] = 'Symfony\Component\HttpKernel\Controller\ArgumentResolver';
 $classes[] = 'App\Kernel';
+$classes[] = 'Symfony\Component\HttpKernel\EventListener\LocaleAwareListener';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\LocaleListener';
 $classes[] = 'Symfony\Component\HttpKernel\Log\Logger';
 $classes[] = 'Symfony\Bundle\MakerBundle\Command\MakerCommand';
@@ -265,6 +267,7 @@ $classes[] = 'Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector
 $classes[] = 'Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\ProfilerListener';
 $classes[] = 'Symfony\Component\PropertyAccess\PropertyAccessor';
+$classes[] = 'Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor';
 $classes[] = 'Symfony\Component\HttpFoundation\RequestStack';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\ResponseListener';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Routing\Router';
@@ -340,6 +343,7 @@ $classes[] = 'Symfony\Component\HttpFoundation\Session\Session';
 $classes[] = 'Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage';
 $classes[] = 'Symfony\Component\HttpFoundation\Session\Storage\MetadataBag';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\SessionListener';
+$classes[] = 'Symfony\Component\String\Slugger\AsciiSlugger';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\StreamedResponseListener';
 $classes[] = 'Twig\Environment';
 $classes[] = 'Twig\Loader\FilesystemLoader';
@@ -385,6 +389,8 @@ $classes[] = 'Symfony\Component\Validator\ValidatorBuilder';
 $classes[] = 'Symfony\Component\Validator\Validation';
 $classes[] = 'Symfony\Component\Validator\ContainerConstraintValidatorFactory';
 $classes[] = 'Symfony\Bridge\Doctrine\Validator\DoctrineInitializer';
+$classes[] = 'Symfony\Component\Validator\Mapping\Loader\PropertyInfoLoader';
+$classes[] = 'Symfony\Component\PropertyInfo\PropertyInfoExtractor';
 $classes[] = 'Symfony\Bridge\Doctrine\Validator\DoctrineLoader';
 $classes[] = 'Symfony\Component\Validator\Constraints\EmailValidator';
 $classes[] = 'Symfony\Component\Validator\Constraints\ExpressionValidator';
